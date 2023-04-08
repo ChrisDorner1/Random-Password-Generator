@@ -1,11 +1,12 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 var password = document.querySelector("#password");
-var upperCaseLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-var lowerCaseLetters = "abcdefghijklmnopqrstuvwxyz"
-var numbers = "1234567890"
+var bigLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+var smallLetters = "abcdefghijklmnopqrstuvwxyz"
+var integers = "1234567890"
 var specials = "!@#$%^&*()<>?,."
 var picked = ""
+var chosen = ""
 // Write password to the #password input
 
 // Prompts user to select criteria
@@ -34,13 +35,29 @@ function writePassword(event) {
     // waiting message while password is generated
     alert ("Please wait while we generate your password")
 
-  }
-  // codeLength = prompt ("Choose a number between 8 and 128 for password.")
-}
+  } // these if statement compiles all of the chosen criteria into one useable variable
+    if (smallLetters) {
+      chosen += smallLetters
+    }
+      if (bigLetters) {
+        chosen += bigLetters
+      }
+        if (number) {
+            chosen += integers
+          }
+          if (symbols) {
+              chosen += specials
+            }
+
+        for (var i = 0; i < codeLength; i++) {
+          picked += chosen.charAt(Math.floor(Math.random() *chosen.length))
+
+        }
+        // sets password content to generated password
+        password.textContent = password.value = picked;
+
+        }
 
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword) 
-// password.value === "";
-// var password = "";
-// var cC = "";

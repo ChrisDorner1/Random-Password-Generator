@@ -11,7 +11,6 @@ var chosen = ""
 
 // Prompts user to select criteria
 function writePassword(event) {
-  console.log ("button pressed")
   var smallLetters = confirm ("Would you like to use lowercase letters?")
   var bigLetters = confirm ("Would You Like To Use Uppercase Letters?")
   var number = confirm ("Would you like your password to contain numbers?")
@@ -20,7 +19,7 @@ function writePassword(event) {
   
   if (!smallLetters && !bigLetters && !number && !symbols ){
     alert ("Please choose at least one criteria!")
-    // reasks user to input criteria
+    // reasks user to input criteria could be revised
     var smallLetters = confirm ("Would you like to use lowercase letters?")
     var bigLetters = confirm ("Would You Like To Use Uppercase Letters?")
     var number = confirm ("Would you like your password to contain numbers?")
@@ -34,29 +33,34 @@ function writePassword(event) {
   } else if (codeLength >8 || codeLength <128) {
     // waiting message while password is generated
     alert ("Please wait while we generate your password")
-
-  } // these if statement compiles all of the chosen criteria into one useable variable
+  }
+   
+  // these if statement compiles all of the chosen criteria into one useable variable
     if (smallLetters) {
       chosen += smallLetters
     }
-      if (bigLetters) {
-        chosen += bigLetters
-      }
-        if (number) {
-            chosen += integers
-          }
-          if (symbols) {
-              chosen += specials
-            }
 
-        for (var i = 0; i < codeLength; i++) {
-          picked += chosen.charAt(Math.floor(Math.random() *chosen.length))
+    if (bigLetters) {
+     chosen += bigLetters
+    }
 
-        }
-        // sets password content to generated password
-        password.textContent = password.value = picked;
+    if (number) {
+      chosen += integers
+    }
+      
+    if (symbols) {
+      chosen += specials
+    }
 
-        }
+    for (var i = 0; i < codeLength; i++) {
+      picked += chosen.charAt(Math.floor(Math.random() * chosen.length))
+
+    }
+      
+    // sets password content to generated password
+   password.textContent = password.value = picked;
+
+}
 
 
 // Add event listener to generate button

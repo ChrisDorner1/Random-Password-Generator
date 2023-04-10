@@ -11,8 +11,8 @@ var chosen = ""
 
 // Prompts user to select criteria
 function writePassword(event) {
-  var smallLetters = confirm ("Would you like to use lowercase letters?")
-  var bigLetters = confirm ("Would You Like To Use Uppercase Letters?")
+  var isSmallLetters = confirm ("Would you like to use lowercase letters?")
+  var isBigLetters = confirm ("Would You Like To Use Uppercase Letters?")
   var number = confirm ("Would you like your password to contain numbers?")
   var symbols = confirm ("Would you like to use special characters? (ex:!@#$%^&*)")
   var codeLength = prompt ("Choose a password length between 8 and 128")
@@ -20,8 +20,8 @@ function writePassword(event) {
   if (!smallLetters && !bigLetters && !number && !symbols ){
     alert ("Please choose at least one criteria!")
     // reasks user to input criteria could be revised
-    var smallLetters = confirm ("Would you like to use lowercase letters?")
-    var bigLetters = confirm ("Would You Like To Use Uppercase Letters?")
+    var isSmallLetters = confirm ("Would you like to use lowercase letters?")
+    var isBigLetters = confirm ("Would You Like To Use Uppercase Letters?")
     var number = confirm ("Would you like your password to contain numbers?")
     var symbols = confirm ("Would you like to use special characters? (ex:!@#$%^&*)")
   }
@@ -37,11 +37,11 @@ function writePassword(event) {
    
   // these if statement compiles all of the chosen criteria into one useable variable
     if (smallLetters) {
-      chosen += smallLetters
+      chosen += isSmallLetters = smallLetters
     }
 
     if (bigLetters) {
-     chosen += bigLetters
+     chosen += isBigLetters = bigLetters
     }
 
     if (number) {
